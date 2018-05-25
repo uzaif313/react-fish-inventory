@@ -17,6 +17,7 @@ class AddInventoryForm extends Component {
             imageRef:this.imageRef.value.value,  
         }
         console.log(fish)
+        this.props.addFish(fish)
     }
 
     render() {
