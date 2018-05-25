@@ -12,8 +12,11 @@ export default class App extends React.Component{
 	}
 
 	addFish = (fish) =>{
-		console.log("adding Fisshh");
-		console.log(fish)
+		const fishes = { ...this.state.fishes }
+		fishes[`fishes-${Date.now()}`] = fish
+
+		this.setState({fishes})
+		
 	}
 
 	render(){
