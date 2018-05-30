@@ -18,6 +18,7 @@ class AddInventoryForm extends Component {
         }
         console.log(fish)
         this.props.addFish(fish)
+        event.currentTarget.reset()
     }
 
     render() {
