@@ -17,6 +17,9 @@ export default class Order extends React.Component{
 		return (
 			<li key={key}>
 				{count}  lbs {fish.name}
+				<button
+				onClick={()=>this.props.deleteOrder(key)}	
+				>&times;</button>
 				{formatPrice(count*fish.price)}
 			</li>
 
@@ -46,6 +49,7 @@ export default class Order extends React.Component{
 						formatPrice(total)
 					}
 				</div>					
+				
 			</div>
 		)
 	}

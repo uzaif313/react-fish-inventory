@@ -46,6 +46,12 @@ export default class App extends React.Component{
 		
 	}
 
+	deleteOrder = (key) =>{
+		const orders = { ...this.state.orders }
+		delete(orders[key])
+		this.setState({orders})
+	}
+
 	loadSampleFishes = () =>{
 		this.setState({fishes:sampleFishes})
 	}
@@ -54,6 +60,18 @@ export default class App extends React.Component{
 		const orders = {...this.state.orders}
 		orders[key] = orders[key] + 1 || 1
 		this.setState({orders})
+	}
+
+	deleteFish = (key) =>{
+		const fishes = {...this.state.fishes}
+		fishes[key] = null
+		this.setState({fishes})
+	}
+
+	updateFish = (key, updatedFish) => {
+		const fishes = {...this.state.fishes}
+		fishes[key] = updatedFish;
+		this.setState({fishes})
 	}
 
 	render(){
@@ -67,16 +85,20 @@ export default class App extends React.Component{
 		  						<Fish key={key} 
 		  									detail={this.state.fishes[key]}
 		  									addToOrder={this.addToOrder}
-		  									index={key}	
-		  									/>
+		  									index={key}/>
 		  					)}
 		  			</ul>
 	  			</div>
-					<Order fishes={this.state.fishes} order= {this.state.orders}/>
+					<Order fishes={this.state.fishes} 
+								order= {this.state.orders}
+								deleteOrder = {this.deleteOrder}
+								/>
 					<Inventory 
 					addFish={this.addFish}
 					loadSampleFishes={this.loadSampleFishes}
-					 />
+					updateFish = {this.updateFish}
+					deleteFish = {this.deleteFish}
+					fishes = {this.state.fishes}/>
 					}
   			</div>
 			</React.Fragment>
