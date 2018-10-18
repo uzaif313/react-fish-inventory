@@ -17,7 +17,9 @@ export default class App extends React.Component{
 	componentDidMount(){
 		const { params } = this.props.match;
 		const localstorageRef = localStorage.getItem(params.storeid)
-		this.setState({orders:JSON.parse(localstorageRef)})
+		if(localstorageRef){
+			this.setState({orders:JSON.parse(localstorageRef)})
+		}
 		// ref for firebase database
 		this.ref = base.syncState(`${params.storeid}/fishes`,{
 			state:"fishes",
