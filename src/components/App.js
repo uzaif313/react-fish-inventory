@@ -99,7 +99,6 @@ export default class App extends React.Component{
 					updateFish = {this.updateFish}
 					deleteFish = {this.deleteFish}
 					fishes = {this.state.fishes}/>
-					}
   			</div>
 			</React.Fragment>
 		)
